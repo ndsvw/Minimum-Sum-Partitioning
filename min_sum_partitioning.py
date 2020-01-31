@@ -17,6 +17,10 @@ def min_sum_first_attempt(arr):
         the minimum (absolute) difference between the sums of 2 arrays consisting of all the elements from the input array
     """
     n = len(arr)
+    if n == 0:
+        return 0
+    if n == 1:
+        return arr[0]
     sum_of_all = sum(arr)
     matrix = [[0 for _ in range(sum_of_all+1)] for _ in range(n)]
     matrix[0] = [abs(sum_of_all - i - i) for i in range(sum_of_all+1)]
@@ -48,6 +52,10 @@ def min_sum_space_improved(arr):
         the minimum (absolute) difference between the sums of 2 arrays consisting of all the elements from the input array
     """
     n = len(arr)
+    if n == 0:
+        return 0
+    if n == 1:
+        return arr[0]
     sum_of_all = sum(arr)
     matrix = [
         [abs(sum_of_all - i - i) for i in range(sum_of_all+1)],
