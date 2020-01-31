@@ -1,4 +1,21 @@
 def min_sum_first_attempt(arr):
+    """
+    A method that calculates the minimum difference of the sums of 2 arrays consisting of all the elements from the input array.
+    Wrong problem description (as it talks about sets): https://practice.geeksforgeeks.org/problems/minimum-sum-partition/0
+    Correct problem description: task.md
+        time complexity: O(n*sum)
+        space complexity: O(n*sum)
+
+    Parameters
+    ----------
+    arr : int[]
+        a list of int values
+
+    Returns
+    -------
+    x  : int
+        the minimum (absolute) difference between the sums of 2 arrays consisting of all the elements from the input array
+    """
     n = len(arr)
     sum_of_all = sum(arr)
     matrix = [[0 for _ in range(sum_of_all+1)] for _ in range(n)]
@@ -13,6 +30,23 @@ def min_sum_first_attempt(arr):
 
 
 def min_sum_space_improved(arr):
+    """
+    A method that calculates the minimum difference of the sums of 2 arrays consisting of all the elements from the input array.
+    Wrong problem description (as it talks about sets): https://practice.geeksforgeeks.org/problems/minimum-sum-partition/0
+    Correct problem description: task.md
+        time complexity: O(n*sum)
+        space complexity: O(sum)
+
+    Parameters
+    ----------
+    arr : int[]
+        a list of int values
+
+    Returns
+    -------
+    x  : int
+        the minimum (absolute) difference between the sums of 2 arrays consisting of all the elements from the input array
+    """
     n = len(arr)
     sum_of_all = sum(arr)
     matrix = [
@@ -27,3 +61,24 @@ def min_sum_space_improved(arr):
                     matrix[1][j] = matrix[0][j+arr[i]]
         matrix[0] = [e for e in matrix[1]]
     return matrix[1][0]
+
+
+def min_sum(arr):
+    """
+    A method that calculates the minimum difference of the sums of 2 arrays consisting of all the elements from the input array.
+    Wrong problem description (as it talks about sets): https://practice.geeksforgeeks.org/problems/minimum-sum-partition/0
+    Correct problem description: task.md
+        time complexity: O(n*sum)
+        space complexity: O(sum)
+
+    Parameters
+    ----------
+    arr : int[]
+        a list of int values
+
+    Returns
+    -------
+    x  : int
+        the minimum (absolute) difference between the sums of 2 arrays consisting of all the elements from the input array
+    """
+    return min_sum_space_improved(arr)
